@@ -1,0 +1,19 @@
+<h1>Welcome to our Todo App!</h1>
+
+<%= link_to 'New Todo', new_todo_path %></br>
+
+<h3>List of Todos</h3>
+<table id="todo-table">
+  <tr>
+    <td>#</td>
+    <td>Todo</td>
+    <td>Completed?</td>
+  </tr>
+  <% @todos.sort.each_with_index do |todo, index| %>
+  <tr>
+    <td><%= index + 1 %></td>
+    <td><%= link_to "#{todo.content}", todo_path(todo.id) %></td>
+    <td><%= todo_completed(todo.completed) %></td>
+  </tr>
+  <% end %>
+</table>
